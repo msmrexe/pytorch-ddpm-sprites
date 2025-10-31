@@ -25,16 +25,11 @@ class ResidualConvBlock(nn.Module):
             nn.GELU(),
         )
         
-        # --- IMPROVEMENT ---
-        # Fixed the inefficient shortcut implementation from the original notebook.
-        # The original created a new nn.Conv2d layer on *every* forward pass.
-        # This defines it once in __init__.
         if self.is_res:
             if self.same_channels:
                 self.shortcut = nn.Identity()
             else:
                 self.shortcut = nn.Conv2d(in_channels, out_channels, 1, 1, 0)
-        # --- END IMPROVEMENT ---
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         if self.is_res:
