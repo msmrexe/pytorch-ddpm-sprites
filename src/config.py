@@ -11,14 +11,14 @@ BETA_2 = 0.02
 
 # Network hyperparameters
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else torch.device('cpu'))
-N_FEAT = 128  # Original 64, increased to 128 for better performance
+N_FEAT = 128 
 N_CFEAT = 5  # Context vector size
 HEIGHT = 16  # 16x16 image
 IN_CHANNELS = 3
 
 # Training hyperparameters
-BATCH_SIZE = 128 # Original 100
-N_EPOCH = 100 # Original 40, increased for better performance
+BATCH_SIZE = 128
+N_EPOCH = 100
 LRATE = 1e-3
 VAL_SPLIT = 0.1
 
